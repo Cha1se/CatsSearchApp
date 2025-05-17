@@ -1,6 +1,10 @@
-package com.cha1se.catssearchapp.ui.theme
+package com.cha1se.presentation.theme
 
 import androidx.compose.ui.graphics.Color
+
+val Primary = Color(0xFF7A61D5)
+val Secondary = Color(0xFF33275C)
+val Background = Color(0xFF1E1836)
 
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
