@@ -5,7 +5,7 @@ import com.cha1se.domain.util.Result
 
 interface Repository {
 
-    fun loadCats(limit: Int, page: Int): Result<List<CatBreed>>
+    suspend fun loadCats(limit: Int, page: Int): Result<List<CatBreed>>
 
 }
 
