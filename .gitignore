@@ -9,3 +9,4 @@
 .externalNativeBuild
 .cxx
 local.properties
+/data/src/main/java/com/cha1se/data/Utils.kt
