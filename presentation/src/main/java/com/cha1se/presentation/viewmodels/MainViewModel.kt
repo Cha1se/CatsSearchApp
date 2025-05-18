@@ -25,7 +25,7 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
         when (event) {
             is MainEvent.loadData -> {
                 viewModelScope.launch(Dispatchers.IO) {
-                    repository.loadCats(limit = 10, page =  1).collect { cats ->
+                    repository.loadCats(limit = 10, page =  1, query = event.query).collect { cats ->
                         when(cats) {
                             is Result.Success -> {
                                 println(cats.data)
