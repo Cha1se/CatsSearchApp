@@ -7,9 +7,11 @@ import retrofit2.http.Query
 
 interface CatApi {
 
-    @GET("breeds/")
+    @GET("breeds/search")
     suspend fun getBreeds(
-        @Header("Authorization") token: String = "Bearer $MY_TOKEN",
+        @Header("x-api-key") token: String = MY_TOKEN,
+        @Query("attach_image") attachImage: Int = 1,
+        @Query("q") query: String,
         @Query("limit") limit: Int,
         @Query("page") page: Int,
     ): List<CatBreed>

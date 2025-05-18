@@ -25,9 +25,10 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
         when (event) {
             is MainEvent.loadData -> {
                 viewModelScope.launch(Dispatchers.IO) {
-                    repository.loadCats(10, 1).collect { cats ->
+                    repository.loadCats(limit = 10, page =  1).collect { cats ->
                         when(cats) {
                             is Result.Success -> {
+                                println(cats.data)
                                 _state.update { it.copy(catList = cats.data) }
                                 _uiState.update { it.copy(isLoading = false, isError = false) }
                             }

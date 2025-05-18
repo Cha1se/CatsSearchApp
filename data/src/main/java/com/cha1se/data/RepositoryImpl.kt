@@ -14,14 +14,14 @@ const val BASE_URL = "https://api.thecatapi.com/v1/"
 
 class RepositoryImpl(private val api: CatApi): Repository {
 
-    constructor() : this(
-        Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build().create(CatApi::class.java)
-    )
+//    constructor() : this(
+//        Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build().create(CatApi::class.java)
+//    )
 
-    override suspend fun loadCats(limit: Int, page: Int): Flow<Result<List<CatBreed>>> = flow {
+    override suspend fun loadCats(query: String, limit: Int, page: Int): Flow<Result<List<CatBreed>>> = flow {
         emit(Result.Loading)
         emit(
-            api.getBreeds(limit = limit, page = page).map { it.toDomain() }.safeRequest()
+            api.getBreeds(query = query, limit = limit, page = page).map { it.toDomain() }.safeRequest()
         )
     }
 }

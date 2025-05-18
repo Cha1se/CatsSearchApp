@@ -2,14 +2,16 @@ package com.cha1se.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Primary = Color(0xFF7A61D5)
-val Secondary = Color(0xFF33275C)
-val Background = Color(0xFF1E1836)
+val Primary = Color(0xFF88d1eb)
+val Secondary = Color(0xFFb3cad4)
+val Tertiary = Color(0xFFc3c3eb)
+val Card = Color(0xFF1b2023)
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val OnSurface = Color(0xFFdee3e6)
+val OnSurfaceVar = Color(0xFFbfc8cc)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val PrimaryContainer = Color(0xFF004e60)
+val SecondaryContainer = Color(0xFF344a52)
+val TertiaryContainer = Color(0xFF424465)
+
+val Background = Color(0xFF0f1416)

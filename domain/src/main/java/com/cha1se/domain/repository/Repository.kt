@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface Repository {
 
-    suspend fun loadCats(limit: Int, page: Int): Flow<Result<List<CatBreed>>>
+    suspend fun loadCats(query: String = " ", limit: Int, page: Int): Flow<Result<List<CatBreed>>>
 
 }
 

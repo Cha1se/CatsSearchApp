@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="loading_error">Loading error, please check your internet connection</string>
+    <string name="cat_breeds">Cat breeds</string>
 </resources>

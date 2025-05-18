@@ -11,41 +11,48 @@ import com.cha1se.presentation.R
 
 val Roboto = FontFamily(Font(R.font.roboto))
 val RobotoMedium = FontFamily(Font(R.font.roboto_medium))
+val FigTreeBlack = FontFamily(Font(R.font.figtree_black))
+val FigTreeBold = FontFamily(Font(R.font.figtree_bold))
 
 // Set of Material typography styles to start with
 val Typography = Typography(
     bodyMedium = TextStyle(
         fontFamily = Roboto,
         fontSize = 14.sp,
-        color = Color.White,
+        color = OnSurface,
     ),
     bodyLarge = TextStyle(
         fontFamily = Roboto,
         fontSize = 16.sp,
-        color = Color.White,
+        color = OnSurface,
+    ),
+    bodySmall = TextStyle(
+        fontFamily = Roboto,
+        fontSize = 14.sp,
+        color = OnSurfaceVar,
     ),
 
     labelLarge = TextStyle(
         fontFamily = RobotoMedium,
         fontSize = 16.sp,
-        color = Color.White,
+        color = Primary,
     ),
     labelMedium = TextStyle(
         fontFamily = RobotoMedium,
         fontSize = 14.sp,
-        color = Color.White,
+        color = Primary,
     ),
 
     titleMedium = TextStyle(
         fontFamily = RobotoMedium,
         fontSize = 14.sp,
-        color = Color.White,
+        color = Primary,
         textAlign = TextAlign.Center
     ),
     titleLarge = TextStyle(
-        fontFamily = RobotoMedium,
-        fontSize = 16.sp,
-        color = Color.White,
-        textAlign = TextAlign.Center
+        fontFamily = FigTreeBlack,
+        fontSize = 26.sp,
+        letterSpacing = 1.5.sp,
+        color = Primary,
     ),
 )
