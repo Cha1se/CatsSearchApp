@@ -13,8 +13,11 @@ kotlin {
 }
 dependencies {
     implementation(project(":domain"))
-    implementation(libs.retrofit)
-    implementation(libs.gson)
-    implementation(libs.converter.gson)
+
+    api(libs.retrofit)
+    api(libs.gson)
+    api(libs.converter.gson)
+
     implementation (libs.kotlinx.coroutines.android)
+    implementation(libs.javax.inject)
 }

@@ -17,7 +17,9 @@ import com.cha1se.presentation.navigation.Navigation
 import com.cha1se.presentation.theme.Background
 
 import com.cha1se.presentation.theme.CatsSearchAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -26,11 +28,11 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge(SystemBarStyle.dark(Color.Transparent.toArgb()))
 
         setContent {
-            val navHostController = rememberNavController()
+
 
             CatsSearchAppTheme {
                 Scaffold(Modifier.fillMaxSize(), containerColor = Background) {
-                    Navigation(navHostController)
+                    Navigation()
                 }
             }
         }

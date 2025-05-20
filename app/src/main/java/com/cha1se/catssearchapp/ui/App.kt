@@ -8,25 +8,9 @@ import com.cha1se.data.CatApi
 import com.cha1se.data.RepositoryImpl
 import com.cha1se.domain.repository.Repository
 import com.cha1se.presentation.viewmodels.MainViewModel
-import com.cha1se.presentation.viewmodels.ProvideMainViewModel
+import dagger.hilt.android.HiltAndroidApp
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class App() : Application(), ProvideMainViewModel {
-    private lateinit var mainViewModel: MainViewModel
-
-    override fun onCreate() {
-        super.onCreate()
-
-        val repository: Repository = RepositoryImpl(
-            Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build().create(
-            CatApi::class.java))
-        mainViewModel = MainViewModel(repository)
-    }
-
-    override fun viewModel(): MainViewModel {
-        return mainViewModel
-    }
-
-
-}
+@HiltAndroidApp
+class App() : Application()

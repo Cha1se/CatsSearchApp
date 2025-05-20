@@ -9,14 +9,11 @@ import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
 
 const val BASE_URL = "https://api.thecatapi.com/v1/"
 
-class RepositoryImpl(private val api: CatApi): Repository {
-
-//    constructor() : this(
-//        Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build().create(CatApi::class.java)
-//    )
+class RepositoryImpl @Inject constructor(private val api: CatApi): Repository {
 
     override suspend fun loadCats(query: String, limit: Int, page: Int): Flow<Result<List<CatBreed>>> = flow {
         emit(Result.Loading)

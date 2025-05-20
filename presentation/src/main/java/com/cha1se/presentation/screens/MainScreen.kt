@@ -53,26 +53,29 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import com.cha1se.domain.model.CatBreed
 import com.cha1se.domain.model.Image
 import com.cha1se.presentation.R
+import com.cha1se.presentation.navigation.Screen
 import com.cha1se.presentation.theme.Card
 import com.cha1se.presentation.theme.OnSurface
 import com.cha1se.presentation.theme.OnSurfaceVar
 import com.cha1se.presentation.theme.Primary
 import com.cha1se.presentation.theme.PrimaryContainer
 import com.cha1se.presentation.theme.Typography
-import com.cha1se.presentation.viewmodels.ProvideMainViewModel
+import com.cha1se.presentation.viewmodels.MainViewModel
 import com.cha1se.presentation.viewmodels.events.MainEvent
 import com.cha1se.presentation.viewmodels.state.UiState
 
 @Composable
 fun MainScreen(navController: NavController) {
-    val vm =
-        ((LocalContext.current.applicationContext as Application) as ProvideMainViewModel).viewModel()
+    val vm = hiltViewModel<MainViewModel>()
+
     val state by vm.state.collectAsState()
     val uiState by vm.uiState.collectAsState()
     var isSearchActive by remember { mutableStateOf(false) }
@@ -153,7 +156,8 @@ fun MainScreen(navController: NavController) {
 
                 CatCard(
                     modifier = Modifier.clip(if (index == 0) startShape else if (index == state.catList.lastIndex) endShape else middleShape),
-                    catBreed = cat
+                    catBreed = cat,
+                    navController = navController
                 )
             }
         } else {
@@ -212,7 +216,8 @@ fun CatCard(
         description = "My name is Barsik, i like a fish",
         image = Image(id = "0", url = "https://cdn2.thecatapi.com/images/3kh.jpg"),
         temperament = "Dobriy dobriy cat"
-    )
+    ),
+    navController: NavController = rememberNavController(),
 ) {
     val animateAlpha = remember { Animatable(0f) }
     LaunchedEffect(Unit) { animateAlpha.animateTo(1f) }
@@ -221,6 +226,7 @@ fun CatCard(
         modifier = modifier
             .alpha(animateAlpha.value)
             .fillMaxWidth()
+            .clickable { navController.navigate(Screen.Info.routeWithArgument(catBreed.id)) }
             .background(Card)
             .padding(8.dp)
     ) {
