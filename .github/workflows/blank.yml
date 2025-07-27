@@ -17,3 +17,13 @@ jobs:
     steps:
       - name: print_hello
         run: echo "Hello world"
+  print_cal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print_hello
+        run: sudo cal
+  print_info:
+      runs-on: ubuntu-latest
+      steps:
+        - name: print_hello
+          run: sudo lahw
