@@ -21,9 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print_hello
-        run: sudo cal
+        run: sudo time
   print_info:
       runs-on: ubuntu-latest
       steps:
         - name: print_hello
-          run: sudo lahw
+          run: sudo lshw
