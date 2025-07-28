@@ -18,6 +18,11 @@ dependencies {
     api(libs.gson)
     api(libs.converter.gson)
 
+
     implementation (libs.kotlinx.coroutines.android)
     implementation(libs.javax.inject)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.kotlin)
 }

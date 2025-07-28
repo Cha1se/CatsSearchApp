@@ -1,7 +1,6 @@
 package com.cha1se.catssearchapp
 
 import org.junit.Test
-
 import org.junit.Assert.*
 
 /**
